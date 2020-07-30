@@ -12,6 +12,16 @@ public class Livro {
     int numeroPaginas;
     boolean disponivel;
 
+    //método construtor: iniciliza os atributos do objeto
+    //ele tem o mesmo nome da classe
+    public Livro(String titulo,String editora,String autor, int numeroPaginas){
+        this.titulo = titulo;
+        this.editora = editora;
+        this.autor = autor;
+        this.numeroPaginas = numeroPaginas;
+        this.disponivel = true;
+    }
+
     //métodos do livro: ações ou comportamentos do livro
     public void emprestar(){
         disponivel = false;
@@ -25,4 +35,7 @@ public class Livro {
         return disponivel;
     }
 
+    //criar um método para exibir os dados de um livro
+
+    
 }
