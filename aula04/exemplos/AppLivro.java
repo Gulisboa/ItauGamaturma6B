@@ -42,5 +42,7 @@ public class AppLivro {
         System.out.println("Número de páginas dos livros");
         System.out.println(livro1.titulo + " - " + livro1.obterPaginas() + " páginas.");
         System.out.println(livro2.titulo + " - " + livro2.obterPaginas() + " páginas.");
+
+        in.close();
     }
 }
