@@ -35,7 +35,33 @@ public class Livro {
         return disponivel;
     }
 
-    //criar um método para exibir os dados de um livro
 
-    
+    public int obterPaginas(){
+        return numeroPaginas;
+    }
+
+    //criar um método para exibir os dados de um livro
+    public void exibirDados(){
+        String disponibilidade;
+
+        if(disponivel){
+            disponibilidade = "disponível";
+        }else{
+            disponibilidade = "não disponível";
+        }
+        
+        System.out.println("Livro: " + titulo + " : " + autor + ", " + editora + "-" + numeroPaginas + " (" + disponibilidade + ")");
+    }
+
+    public String getDados(){
+        String disponibilidade;
+
+        if(disponivel){
+            disponibilidade = "disponível";
+        }else{
+            disponibilidade = "não disponível";
+        }
+        
+         return "Livro: " + titulo + " : " + autor + ", " + editora + "-" + numeroPaginas + " (" + disponibilidade + ")";
+    }
 }

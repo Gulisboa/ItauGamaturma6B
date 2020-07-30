@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class AppLivro {
     public static void main(String[] args) {
-        Scanner in = new Scanner( System.in );
+        Scanner in = new Scanner(System.in);
         String titulo;
-
 
         System.out.println("Informe o título do livro:");
         titulo = in.nextLine();
@@ -20,16 +19,28 @@ public class AppLivro {
 
         boolean possoEmprestar = livro1.estaDisponivel();
 
-        if(possoEmprestar){
+        if (possoEmprestar) {
             System.out.println("O livro " + livro1.titulo + " está disponível");
-        }else{
+        } else {
             System.out.println("O livro " + livro1.titulo + " não está disponível");
         }
 
-        if(livro2.estaDisponivel()){
+        if (livro2.estaDisponivel()) {
             System.out.println("O livro " + livro2.titulo + " está disponível");
-        }else{
+        } else {
             System.out.println("O livro " + livro2.titulo + " não está disponível");
         }
+
+        System.out.println("Livros cadastrados:");
+        livro1.exibirDados();
+        livro2.exibirDados();
+
+        String saida = livro1.getDados();
+        System.out.println(saida);
+        System.out.println(livro2.getDados());
+
+        System.out.println("Número de páginas dos livros");
+        System.out.println(livro1.titulo + " - " + livro1.obterPaginas() + " páginas.");
+        System.out.println(livro2.titulo + " - " + livro2.obterPaginas() + " páginas.");
     }
 }
