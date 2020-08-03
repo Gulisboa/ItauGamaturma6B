@@ -1,9 +1,10 @@
+package projrelogio;
 /**
  * Relogio
  */
 public class Relogio {
 
-    private int hora, minuto, segundo;
+    int hora, minuto, segundo;
 
     public Relogio(int hora, int minuto, int segundo) {
         setHora(hora);

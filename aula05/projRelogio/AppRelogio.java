@@ -6,6 +6,8 @@ public class AppRelogio {
 
         System.out.println(relogio.exibir());
 
+        relogio.hora = 3;
+        
         relogio.setHora(-9);
 
         System.out.println("Hora atual: " + relogio.getHora());
