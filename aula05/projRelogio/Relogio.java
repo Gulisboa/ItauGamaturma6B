@@ -6,6 +6,12 @@ public class Relogio {
 
     int hora, minuto, segundo;
 
+    public Relogio(){
+        hora = 24;
+        minuto = 0;
+        segundo = 0;
+    }
+
     public Relogio(int hora, int minuto, int segundo) {
         setHora(hora);
         setMinuto(minuto);
