@@ -1,7 +1,4 @@
-//package projpessoa;
-
-import projpessoa.Estudante;
-import projpessoa.Professor;
+package projpessoa;
 
 public class AppEscola {
     public static void main(String[] args) {
