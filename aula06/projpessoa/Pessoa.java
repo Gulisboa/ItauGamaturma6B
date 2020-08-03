@@ -3,7 +3,7 @@ package projpessoa;
 /**
  * Pessoa
  */
-public class Pessoa {
+public class Pessoa /* extends Object */{ //todas as classes herdam de Object
 
     private String nome, ender, tel;
 
@@ -41,4 +41,12 @@ public class Pessoa {
         this.tel = tel;
     }
 
+    protected String exibirDados(){
+        return nome + " - " + ender + " - " + tel;
+    }
+
+    @Override
+    public String toString() {
+        return exibirDados();
+    }
 }

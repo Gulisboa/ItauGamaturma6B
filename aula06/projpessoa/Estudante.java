@@ -33,4 +33,10 @@ public class Estudante extends Pessoa {
     public int getAnoGraduacao(){
         return anoGraduacao;
     }
+
+    @Override
+    public String exibirDados(){
+        return super.exibirDados() + " - RA: " + ra;
+    }
+    
 }
