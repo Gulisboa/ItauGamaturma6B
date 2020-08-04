@@ -3,7 +3,7 @@ package projloja;
 public class AppLoja {
     public static void main(String[] args) {
         Cliente c1 = new Cliente("Carlos","carlos@carlos.com");
-        ClienteVip c2 = new ClienteVip("Marcela","marcela@gmail.com", 100);
+        ClienteVip c2 = new ClienteVip("Marcela","marcela@gmail.com", 100, "Marquinhos","mq@hotmail.com");
 
         c1.colocarCredito(100);
 

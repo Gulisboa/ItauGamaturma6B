@@ -8,9 +8,14 @@ public class ClienteVip extends Cliente {
         this.creditoEspecial = creditoEspecial;
     }
 
+    public ClienteVip(String nome, String email, float creditoEspecial, String nomeDep, String emailDep){
+        super(nome, email, nomeDep, emailDep);
+        this.creditoEspecial = creditoEspecial;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + " limite: " + creditoEspecial;
+        return getNome() + " : " + getEmail() + " : " + getCredito() + " limite: " + creditoEspecial + "\nDependente: " + getDependente().toString();
     }
 
     @Override
