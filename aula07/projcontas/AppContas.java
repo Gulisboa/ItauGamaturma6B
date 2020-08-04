@@ -39,8 +39,9 @@ public class AppContas {
                 case 2:
                     System.out.println("Informe o número da poupança:");
                     numeroConta = in.nextInt();
-                    conta = new ContaPoupanca(numeroConta);
-                    contas.add(conta);
+/*                     conta = new ContaPoupanca(numeroConta);
+                    contas.add(conta); */
+                    contas.add(new ContaCorrente(numeroConta));
                     break;
 
                 case 3:
