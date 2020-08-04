@@ -1,19 +1,15 @@
 package projcontas;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AppContas {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int numeroConta;
-        double valor, limite;
+        float valor, limite;
         int opcao;
-        boolean achou;
 
         GerenciaContas contas = new GerenciaContas();
-
-        Conta conta = null;
 
         do {
             System.out.println("1-Novo conta corrente");
@@ -44,8 +40,7 @@ public class AppContas {
                     System.out.println("Informe o número da conta especial:");
                     numeroConta = in.nextInt();
                     System.out.println("Informe o limite:");
-                    limite = in.nextDouble();
-
+                    limite = in.nextFloat();
                     contas.novaConta(new ContaEspecial(numeroConta, limite));
                     break;
 
@@ -59,44 +54,21 @@ public class AppContas {
                     System.out.println("Informe o número da conta:");
                     numeroConta = in.nextInt();
                     System.out.println("Digite o valor do saque:");
-                    valor = in.nextDouble();
-                    achou = false;
-
-                    for (Conta c : contas) {
-                        if (c.getNumero() == numeroConta) {
-                            if(c.saque(valor)){
-                                System.out.println("Saque efeuado.");
-                            }else{
-                                System.out.println("Saque não efeuado.");
-                            }
-                            achou = true;
-                            break;
-                        }
-                    }
-                    if (!achou) {
-                        System.out.println("Conta não encontrada.");
-                    }
-
+                    valor = in.nextFloat();
+                    System.out.println(contas.efetuarSaque(numeroConta, valor));
                     break;
 
                 case 6:
                     System.out.println("Informe o número da conta:");
                     numeroConta = in.nextInt();
                     System.out.println("Digite o valor do depósito:");
-                    valor = in.nextDouble();
-                    achou = false;
+                    valor = in.nextFloat();
 
-                    for (Conta c : contas) {
-                        if (c.getNumero() == numeroConta) {
-                            c.depositar(valor);
-                            achou = true;
-                            break;
-                        }
-                    }
-                    if (!achou) {
+                    if (contas.efetuarDeposito(numeroConta, valor)) {
+                        System.out.println("Deposito realizado.");
+                    }else{
                         System.out.println("Conta não encontrada.");
                     }
-
                     break;
 
                 case 7:
