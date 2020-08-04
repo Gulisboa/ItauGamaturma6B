@@ -11,7 +11,7 @@ public class AppContas {
         int opcao;
         boolean achou;
 
-        ArrayList<Conta> contas = new ArrayList<>();
+        GerenciaContas contas = new GerenciaContas();
 
         Conta conta = null;
 
@@ -30,18 +30,14 @@ public class AppContas {
                 case 1:
                     System.out.println("Informe o número da conta corrente:");
                     numeroConta = in.nextInt();
-                    /*
-                     * conta = new ContaCorrente(numeroConta); contas.add(conta);
-                     */
-                    contas.add(new ContaCorrente(numeroConta));
+                    contas.novaConta(new ContaCorrente(numeroConta));
                     break;
 
                 case 2:
                     System.out.println("Informe o número da poupança:");
                     numeroConta = in.nextInt();
-/*                     conta = new ContaPoupanca(numeroConta);
-                    contas.add(conta); */
-                    contas.add(new ContaCorrente(numeroConta));
+
+                    contas.novaConta(new ContaCorrente(numeroConta));
                     break;
 
                 case 3:
@@ -49,25 +45,14 @@ public class AppContas {
                     numeroConta = in.nextInt();
                     System.out.println("Informe o limite:");
                     limite = in.nextDouble();
-                    conta = new ContaEspecial(numeroConta, limite);
-                    contas.add(conta);
+
+                    contas.novaConta(new ContaEspecial(numeroConta, limite));
                     break;
 
                 case 4:
                     System.out.println("Informe o número da conta:");
                     numeroConta = in.nextInt();
-                    achou = false;
-
-                    for (Conta c : contas) {
-                        if (c.getNumero() == numeroConta) {
-                            System.out.println(c.exibir());
-                            achou = true;
-                            break;
-                        }
-                    }
-                    if (!achou) { // achou == false
-                        System.out.println("Conta não encontrada.");
-                    }
+                    System.out.println(contas.getInfo(numeroConta));
                     break;
 
                 case 5:
