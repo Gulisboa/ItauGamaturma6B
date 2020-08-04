@@ -1,5 +1,6 @@
 package projcontas;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AppContas {
@@ -8,8 +9,10 @@ public class AppContas {
         int numeroConta;
         double valor, limite;
         int opcao;
+
+        ArrayList<Conta> contas = new ArrayList<>();
+
         Conta conta = null;
-        
 
         do {
             System.out.println("1-Novo conta corrente");
@@ -27,12 +30,14 @@ public class AppContas {
                     System.out.println("Informe o número da conta corrente:");
                     numeroConta = in.nextInt();
                     conta = new ContaCorrente(numeroConta);
+                    contas.add(conta);
                     break;
 
                 case 2:
                     System.out.println("Informe o número da poupança:");
                     numeroConta = in.nextInt();
                     conta = new ContaPoupanca(numeroConta);
+                    contas.add(conta);
                     break;
 
                 case 3:
@@ -41,17 +46,23 @@ public class AppContas {
                     System.out.println("Informe o limite:");
                     limite = in.nextDouble();
                     conta = new ContaEspecial(numeroConta, limite);
+                    contas.add(conta);
                     break;
 
                 case 4:
-                    if (conta != null) {
-                        System.out.println(conta.exibir());
+                    System.out.println("Informe o número da conta:");
+                    numeroConta = in.nextInt();
+                    
+                    for (Conta c : contas) {
+                        if (c.getNumero() == numeroConta) {
+                            System.out.println(c.exibir());
+                        }
                     }
                     break;
 
                 case 5:
                     break;
-                    
+
                 case 6:
                     System.out.println("Digite o valor do depósito:");
                     valor = in.nextDouble();
