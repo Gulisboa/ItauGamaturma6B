@@ -1,11 +1,17 @@
 package br.paduan.loja.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="usuario")
@@ -19,7 +25,8 @@ public class Usuario {
     @Column(name = "nome", length = 100)
     private String nome;
 
-    @Column(name = "email", length = 100)
+    //campo deve ser obrigatório, e não permite duplicidade
+    @Column(name = "email", length = 100, unique = true, nullable = false)
     private String email;
 
     @Column(name = "cpf", length = 20)
@@ -27,6 +34,10 @@ public class Usuario {
 
     @Column(name = "senha", length = 20)
     private String senha;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "solicitante")
+    @JsonIgnoreProperties("solicitante") //não traga os solicitantes destes pedidos
+    private List<Pedido> pedidos;
 
     public int getId() {
         return id;
@@ -66,6 +77,14 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
 
