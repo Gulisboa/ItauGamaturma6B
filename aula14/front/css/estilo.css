@@ -6,3 +6,6 @@ body, html{
     margin-bottom: 15px;
 }
 
+#msgErro{
+    color: red;
+}
