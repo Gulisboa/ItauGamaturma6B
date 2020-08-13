@@ -5,6 +5,12 @@ function validaLogin(){
     if(!userTxt){
         window.location = "index.html";
     }
+
+    let jsonUser = JSON.parse(userTxt);
+
+    document.getElementById("user").innerHTML = `${jsonUser.nome} ( ${jsonUser.racf} )` ;
+    document.getElementById("imgUser").innerHTML = `<img src ="${jsonUser.linkFoto}">`;
+    
 }
 
 function logout(){
